@@ -114,9 +114,77 @@ $(window).on('load', function() {
     renegade_core.customize_login_page();
 });
 
+// Persistent loading screen overlay functionality
+renegade_core.create_loading_overlay = function() {
+    // Remove any existing overlay
+    const existingOverlay = document.querySelector('.loading-screen-overlay');
+    if (existingOverlay) {
+        existingOverlay.remove();
+    }
+    
+    // Create new overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'loading-screen-overlay';
+    
+    // Inject into body
+    document.body.appendChild(overlay);
+    
+    console.log("Loading screen overlay created");
+};
+
+// Monitor for SECOND/problematic loading screens only
+renegade_core.monitor_loading_screens = function() {
+    let firstLoadingScreenSeen = false;
+    
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === Node.ELEMENT_NODE) {
+                        // Check if a loading screen was added
+                        const isLoadingScreen = node.classList && (
+                            node.classList.contains('loading-overlay') ||
+                            node.classList.contains('frappe-loading') ||
+                            node.classList.contains('page-loading') ||
+                            node.classList.contains('loading-screen') ||
+                            node.classList.contains('splash-container') ||
+                            node.classList.contains('centered') ||
+                            node.querySelector('.loading-overlay, .frappe-loading, .page-loading, .loading-screen, .splash-container, .centered.splash')
+                        );
+                        
+                        if (isLoadingScreen) {
+                            if (!firstLoadingScreenSeen) {
+                                // This is the first loading screen - let it work normally
+                                console.log("First loading screen detected - letting it work normally");
+                                firstLoadingScreenSeen = true;
+                            } else {
+                                // This is a subsequent loading screen - overlay it!
+                                console.log("Second/problematic loading screen detected - creating overlay to cover it");
+                                renegade_core.create_loading_overlay();
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+    
+    // Check if any loading screen already exists when we start monitoring
+    if (document.querySelector('.loading-overlay, .frappe-loading, .page-loading, .loading-screen, .splash-container, .centered.splash')) {
+        console.log("Loading screen already exists - marking as first screen");
+        firstLoadingScreenSeen = true;
+    }
+};
+
 // Run immediately and repeatedly to catch dynamic content
 $(document).ready(function() {
     renegade_core.customize_login_page();
+    renegade_core.monitor_loading_screens();
     
     // Keep trying every 500ms for 10 seconds
     let attempts = 0;
