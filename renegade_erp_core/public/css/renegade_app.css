@@ -153,4 +153,8 @@ img[src*="renegade_logo_rounded.svg"] {
     height: 92px !important;
     max-width: none !important;
     max-height: none !important;
+    border: 2px solid #e8d7ba !important;
+    border-radius: 50% !important;  /* Rounded border to match rounded logo */
+    box-shadow: 0 0 8px rgba(232, 215, 186, 0.4) !important;  /* Light fuzzy effect */
+    padding: 8px !important;
 }
