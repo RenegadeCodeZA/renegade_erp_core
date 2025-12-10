@@ -22,7 +22,7 @@ app_include_js = "/assets/renegade_erp_core/js/renegade_core.js"
 
 # include js, css files in header of web template
 web_include_css = "/assets/renegade_erp_core/css/renegade_web.css"
-# web_include_js = "/assets/renegade_erp_core/js/renegade_web.js"
+web_include_js = "/assets/renegade_erp_core/js/renegade_web.js"
 
 # Website context
 website_context = {

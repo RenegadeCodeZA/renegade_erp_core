@@ -122,3 +122,35 @@ body.logged-in {
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
 }
+
+/* LOGIN PAGE FIXES - Backup in app CSS */
+/* Force login title text and color */
+h4 {
+    color: #2596be !important;
+    font-weight: 600 !important;
+}
+
+/* Replace text with CSS */
+h4:before {
+    content: "Login to Renegade" !important;
+    color: #2596be !important;
+    font-weight: 600 !important;
+    font-size: 24px !important;
+}
+
+/* Hide original text */
+h4 {
+    font-size: 0 !important;
+}
+
+/* Make logo bigger - aggressive targeting */
+img.app-logo,
+.app-logo img,
+img[src*="renegade_logo_rounded.svg"] {
+    transform: scale(1.3) !important;
+    transform-origin: center !important;
+    width: 260px !important;
+    height: 104px !important;
+    max-width: none !important;
+    max-height: none !important;
+}
