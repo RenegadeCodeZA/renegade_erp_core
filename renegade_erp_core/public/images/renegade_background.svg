@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <!-- Plain white background -->
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- TAN soft curved line -->
+  <path d="M-50 200 C 300 260, 700 120, 1200 260 C 1550 340, 1750 200, 2000 260"
+        stroke="#E6D3B2" stroke-width="12" fill="none" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- BROWN highly curved wave -->
+  <path d="M-60 700 C 200 600, 550 850, 900 620 C 1300 380, 1700 850, 2000 500"
+        stroke="#4B2E24" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- RED diagonal / sweeping organic line -->
+  <path d="M-80 400 C 250 300, 450 500, 800 450 C 1150 400, 1500 500, 2000 350"
+        stroke="#B12025" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.25"/>
+
+  <!-- SOFT TAN gentle looping line -->
+  <path d="M-100 900 C 350 950, 650 780, 1000 900 C 1400 1040, 1700 780, 2100 880"
+        stroke="#F3E8D0" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- BROWN thin guide line -->
+  <path d="M-40 100 C 300 40, 800 180, 1500 90 C 1700 70, 1850 110, 2000 90"
+        stroke="#4B2E24" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.2"/>
+</svg>

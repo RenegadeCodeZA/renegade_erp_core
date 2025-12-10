@@ -36,15 +36,27 @@ class RenegadeCoreSettings(Document):
 		if self.application_logo:
 			navbar_settings_doc.app_logo = self.application_logo
 			website_doc.app_logo = self.application_logo
-			website_doc.splash_image = self.application_logo
+			website_doc.splash_image = "/assets/renegade_erp_core/images/renegade_logo_rounded.svg"
 			update_site_config("app_logo_url", self.application_logo)
-			frappe.clear_cache()
 		else:
-			navbar_settings_doc.app_logo = ""
-			website_doc.app_logo = ""
-			website_doc.splash_image = ""
-			update_site_config("app_logo_url", False)
-			frappe.clear_cache()
+			# Use rounded logo as default
+			default_logo = "/assets/renegade_erp_core/images/renegade_logo_rounded.svg"
+			navbar_settings_doc.app_logo = default_logo
+			website_doc.app_logo = default_logo
+			website_doc.splash_image = default_logo
+			update_site_config("app_logo_url", default_logo)
+		
+		# Always use rounded logo for favicon
+		website_doc.favicon = "/assets/renegade_erp_core/images/renegade_logo_rounded.svg"
+		
+		# Handle background image
+		if self.background_image:
+			update_site_config("background_image_url", self.background_image)
+		else:
+			# Default background
+			update_site_config("background_image_url", "/assets/renegade_erp_core/images/renegade_background.svg")
+			
+		frappe.clear_cache()
 
 	def disable_onboarding_settings(self, system_settings_doc):
 		if self.disable_onboarding == 1:

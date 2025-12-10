@@ -6,6 +6,6 @@ __version__ = '1.0.0'
 
 # Dynamic logo configuration
 if frappe.conf and frappe.conf.get("app_logo_url"):
-    __logo__ = frappe.conf.get("app_logo_url") or '/assets/renegade_erp_core/images/renegade_logo_default.svg'
+    __logo__ = frappe.conf.get("app_logo_url") or '/assets/renegade_erp_core/images/renegade_logo_rounded.svg'
 else:
-    __logo__ = '/assets/renegade_erp_core/images/renegade_logo_default.svg'
+    __logo__ = '/assets/renegade_erp_core/images/renegade_logo_rounded.svg'

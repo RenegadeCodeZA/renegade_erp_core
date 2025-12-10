@@ -48,17 +48,65 @@
     max-height: 200px !important;
     width: auto !important;
     height: auto !important;
+    position: relative !important;
+    z-index: 100 !important;
 }
 
-/* Splash screen container */
+/* Splash screen container with background persistence */
 .splash-container {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    position: relative;
+    background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .splash-container img {
     max-width: 300px !important;
     max-height: 200px !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+/* Background image for all pages */
+body {
+    background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Loading overlay with background */
+.loading-overlay,
+.frappe-loading,
+.page-loading {
+    background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+/* Ensure content area maintains background */
+.main-section,
+.page-wrapper,
+.container {
+    background: transparent !important;
+}
+
+/* Navbar transparency to show background */
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Loading screen specific styling */
+.loading-screen {
+    background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
 }

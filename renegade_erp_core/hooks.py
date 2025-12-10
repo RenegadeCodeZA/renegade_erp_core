@@ -11,7 +11,7 @@ app_icon = "octicon octicon-package"
 app_color = "#2d5aa0"
 app_email = "support@renegadecode.co.za"
 app_license = "MIT"
-app_logo_url = '/assets/renegade_erp_core/images/renegade_logo_default.svg'
+app_logo_url = '/assets/renegade_erp_core/images/renegade_logo_rounded.svg'
 
 # Includes in <head>
 # ------------------
@@ -27,7 +27,7 @@ web_include_css = "/assets/renegade_erp_core/css/renegade_web.css"
 # Website context
 website_context = {
 	"favicon": "/assets/renegade_erp_core/images/renegade_logo_rounded.svg",
-	"splash_image": app_logo or "/assets/renegade_erp_core/images/renegade_erp_full_logo.svg"
+	"splash_image": "/assets/renegade_erp_core/images/renegade_logo_rounded.svg"
 }
 
 # Boot session for dynamic configurations

@@ -18,6 +18,8 @@
   "column_break_7",
   "logo_height",
   "logo_width",
+  "background_section",
+  "background_image",
   "navbar_settings_tab",
   "navbar_section",
   "navbar_background_color",
@@ -82,10 +84,10 @@
   },
   {
    "fieldname": "application_logo",
-   "fieldtype": "Attach",
+   "fieldtype": "Attach", 
    "label": "Application Logo",
    "description": "Upload logo as public file for navbar and login page",
-   "default": "/assets/renegade_erp_core/images/renegade_logo_default.svg"
+   "default": "/assets/renegade_erp_core/images/renegade_logo_rounded.svg"
   },
   {
    "fieldname": "column_break_7",
@@ -102,6 +104,18 @@
    "fieldtype": "Int",
    "label": "Logo Width (px)",
    "description": "Logo width in pixels"
+  },
+  {
+   "fieldname": "background_section",
+   "fieldtype": "Section Break",
+   "label": "Background Image"
+  },
+  {
+   "fieldname": "background_image",
+   "fieldtype": "Attach",
+   "label": "Page Background Image",
+   "description": "Background image for all pages (SVG or image file)",
+   "default": "/assets/renegade_erp_core/images/renegade_background.svg"
   },
   {
    "fieldname": "navbar_settings_tab",
