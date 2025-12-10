@@ -73,24 +73,21 @@ div.social-logins,
     background-position: center center !important;
 }
 
-/* Consistent logo sizing for ALL screens to prevent shifting */
+/* Loading screen logo sizing ONLY - do not affect navbar */
 .splash-image img,
 .loading-image img,
 .frappe-loader img,
 [data-splash-image] img,
 .loading-screen img,
 .splash-screen img,
-.frappe-loading img,
-img[src*="renegade_logo_border.svg"],
-img[src*="renegade_logo_rounded.svg"] {
-    width: 280px !important;  /* 160px * 1.75 = 280px - CONSISTENT SIZE */
+.frappe-loading img {
+    width: 280px !important;  /* Larger size for loading screens */
     height: 280px !important;
     max-width: 280px !important;
     max-height: 280px !important;
     min-width: 280px !important;
     min-height: 280px !important;
-    transform: none !important;  /* Remove any conflicting transforms */
-    transform-origin: center !important;
+    transform: none !important;
     object-fit: contain !important;
 }
 
@@ -101,15 +98,22 @@ img[src*="renegade_logo_rounded.svg"] {
     transition: none !important;
 }
 
-/* Prevent any background position shifts - more specific targeting */
+/* Prevent any background position shifts and margins during loading */
 html, body, 
 .page-container, .main-wrapper, .content,
 .loading-screen, .splash-screen, .frappe-loading,
-.login-content, .login-page {
+.login-content, .login-page,
+#app, .app, .wrapper, .page-wrapper,
+.container, .container-fluid,
+.page-content, .main-content {
     background-position: center center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 /* Force logo to be rounded logo */
@@ -122,17 +126,16 @@ html, body,
     max-height: 80px;
 }
 
-/* Login page logo - scale bordered version 1.75x bigger - ONLY on login page */
+/* Login page logo - ORIGINAL SIZE, no scaling */
 .login-page img.app-logo,
 .login-content img.app-logo,
 .login-page .app-logo img,
 .login-content .app-logo img {
-    width: 160px !important;  /* Base size before scaling */
+    width: 160px !important;  /* Original size - no scaling */
     height: 160px !important;
-    transform: scale(1.75) !important;
-    transform-origin: center !important;
-    max-width: none !important;
-    max-height: none !important;
+    transform: none !important;
+    max-width: 160px !important;
+    max-height: 160px !important;
 }
 
 /* Login page specific title styling - only target login page h4 elements */

@@ -17,32 +17,30 @@
             }
         });
         
-        // Replace logo with bordered version for login page
-        const logos = document.querySelectorAll('img.app-logo, .app-logo img, img[src*="renegade_logo"]');
-        logos.forEach(function(logo) {
-            // Only replace on login page - use bordered SVG that includes the border
+        // Handle different logo contexts separately
+        
+        // Login page logos - use bordered logo, original size
+        const loginLogos = document.querySelectorAll('.login-page img.app-logo, .login-content img.app-logo, .login-page .app-logo img, .login-content .app-logo img');
+        loginLogos.forEach(function(logo) {
             logo.src = '/assets/renegade_erp_core/images/renegade_logo_border.svg';
-            
-            // Check if this is login page (CSS will handle scaling)
-            const isLoginPage = document.body.classList.contains('login-page') || 
-                               document.querySelector('.login-content') ||
-                               window.location.pathname.includes('/login');
-            
-            if (isLoginPage) {
-                // Login page - use base size, CSS will scale with transform
-                logo.style.width = '160px';
-                logo.style.height = '160px';
-                logo.style.transform = 'scale(1.75)';
-                logo.style.transformOrigin = 'center';
-            } else {
-                // Loading screens - use fixed 280px size, no transform
+            logo.style.width = '160px';
+            logo.style.height = '160px';
+            logo.style.transform = 'none';
+            console.log("Set login page logo to bordered, original size");
+        });
+        
+        // Loading screen logos - use bordered logo, larger size
+        const loadingLogos = document.querySelectorAll('.splash-image img, .loading-image img, .frappe-loader img, [data-splash-image] img, .loading-screen img, .splash-screen img, .frappe-loading img');
+        loadingLogos.forEach(function(logo) {
+            if (logo.src.includes('renegade_logo')) {
+                logo.src = '/assets/renegade_erp_core/images/renegade_logo_border.svg';
                 logo.style.width = '280px';
                 logo.style.height = '280px';
-                logo.style.transform = 'none';
+                console.log("Set loading screen logo to bordered, large size");
             }
-            
-            console.log("Replaced with bordered logo for login/loading");
         });
+        
+        // DO NOT TOUCH navbar logos - they should use rounded version and normal size
         
         // Hide social logins section completely
         const socialLogins = document.querySelectorAll('.social-logins, div.social-logins, .social-logins.text-center');

@@ -39,25 +39,32 @@
     border-color: #234a87;
 }
 
-/* Loading screen logo sizing - consistent 280px everywhere */
+/* Loading screen logo sizing - ONLY for loading screens */
 .splash-image img,
 .loading-image img,
 .frappe-loader img,
 [data-splash-image] img,
 .loading-screen img,
-.splash-screen img,
-img[src*="renegade_logo_border.svg"],
-img[src*="renegade_logo_rounded.svg"] {
-    width: 280px !important;  /* FIXED SIZE - no scaling */
+.splash-screen img {
+    width: 280px !important;  /* Large size for loading screens */
     height: 280px !important;
     max-width: 280px !important;
     max-height: 280px !important;
-    min-width: 280px !important;
-    min-height: 280px !important;
     position: relative !important;
     z-index: 100 !important;
-    transform: none !important;  /* Remove any conflicting transforms */
+    transform: none !important;
     object-fit: contain !important;
+}
+
+/* Navbar logo - normal size, use rounded logo */
+.navbar img.app-logo,
+.navbar .app-logo img,
+.app-logo img:not(.splash-image img):not(.loading-image img):not(.frappe-loader img) {
+    width: auto !important;
+    height: 40px !important;  /* Normal navbar height */
+    max-width: 150px !important;
+    max-height: 40px !important;
+    transform: none !important;
 }
 
 /* Splash screen container with background persistence */
@@ -89,16 +96,25 @@ body {
     background-position: center center !important;
 }
 
-/* Prevent background position changes - comprehensive targeting */
+/* Prevent background position changes and margin issues */
 html, body, 
-.main-section, .page-wrapper, .container,
-.loading-overlay, .frappe-loading, .page-loading, .loading-screen, .splash-container {
+.main-section, .page-wrapper, .container, .container-fluid,
+.loading-overlay, .frappe-loading, .page-loading, .loading-screen, .splash-container,
+.desk, .desk-body, .layout-main, .layout-main-section,
+.page-head, .page-body, .page-content,
+#page-Desk, .module-page, .page-container,
+.row, .col, .content-wrapper {
     background-position: center center !important;
     background-attachment: fixed !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
 }
 
 /* Ensure smooth transitions after login */
