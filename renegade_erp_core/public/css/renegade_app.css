@@ -135,39 +135,16 @@ body.logged-in {
     background-attachment: fixed !important;
 }
 
-/* Ensure content area maintains background and NO margins */
+/* Ensure content area maintains background */
 .main-section,
 .page-wrapper,
-.container,
-.container-fluid,
-.desk,
-.desk-body,
-.layout-main,
-.layout-main-section {
+.container {
     background: transparent !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
 }
 
-/* Force full width on main app containers */
-html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    overflow-x: hidden !important;
-}
-
-/* Target common Frappe/Bootstrap containers that cause margin issues */
-.row {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-}
-
-.col, [class*="col-"] {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+/* Fix right margin issue caused by scrollbar gutter */
+.main-section {
+    scrollbar-gutter: auto !important;
 }
 
 /* Navbar transparency to show background */
