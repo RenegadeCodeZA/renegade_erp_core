@@ -17,15 +17,31 @@
             }
         });
         
-        // Replace logo with bordered version and scale for login page
+        // Replace logo with bordered version for login page
         const logos = document.querySelectorAll('img.app-logo, .app-logo img, img[src*="renegade_logo"]');
         logos.forEach(function(logo) {
             // Only replace on login page - use bordered SVG that includes the border
             logo.src = '/assets/renegade_erp_core/images/renegade_logo_border.svg';
-            // Scale 1.75x bigger
-            logo.style.transform = 'scale(1.75)';
-            logo.style.transformOrigin = 'center';
-            console.log("Replaced with bordered logo and scaled 1.75x for login page");
+            
+            // Check if this is login page (CSS will handle scaling)
+            const isLoginPage = document.body.classList.contains('login-page') || 
+                               document.querySelector('.login-content') ||
+                               window.location.pathname.includes('/login');
+            
+            if (isLoginPage) {
+                // Login page - use base size, CSS will scale with transform
+                logo.style.width = '160px';
+                logo.style.height = '160px';
+                logo.style.transform = 'scale(1.75)';
+                logo.style.transformOrigin = 'center';
+            } else {
+                // Loading screens - use fixed 280px size, no transform
+                logo.style.width = '280px';
+                logo.style.height = '280px';
+                logo.style.transform = 'none';
+            }
+            
+            console.log("Replaced with bordered logo for login/loading");
         });
         
         // Hide social logins section completely

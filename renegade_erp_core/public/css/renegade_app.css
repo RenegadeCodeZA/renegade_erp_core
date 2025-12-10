@@ -39,20 +39,25 @@
     border-color: #234a87;
 }
 
-/* Loading screen logo sizing - consistent with login page */
+/* Loading screen logo sizing - consistent 280px everywhere */
 .splash-image img,
 .loading-image img,
 .frappe-loader img,
 [data-splash-image] img,
 .loading-screen img,
-.splash-screen img {
-    width: 280px !important;  /* 160px * 1.75 = 280px to match login page size */
+.splash-screen img,
+img[src*="renegade_logo_border.svg"],
+img[src*="renegade_logo_rounded.svg"] {
+    width: 280px !important;  /* FIXED SIZE - no scaling */
     height: 280px !important;
-    max-width: none !important;
-    max-height: none !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
     position: relative !important;
     z-index: 100 !important;
     transform: none !important;  /* Remove any conflicting transforms */
+    object-fit: contain !important;
 }
 
 /* Splash screen container with background persistence */
@@ -84,10 +89,16 @@ body {
     background-position: center center !important;
 }
 
-/* Prevent background position changes */
-html, body {
+/* Prevent background position changes - comprehensive targeting */
+html, body, 
+.main-section, .page-wrapper, .container,
+.loading-overlay, .frappe-loading, .page-loading, .loading-screen, .splash-container {
     background-position: center center !important;
     background-attachment: fixed !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* Ensure smooth transitions after login */

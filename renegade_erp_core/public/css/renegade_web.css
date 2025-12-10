@@ -73,19 +73,25 @@ div.social-logins,
     background-position: center center !important;
 }
 
-/* Consistent logo sizing for loading screens to prevent shifting */
+/* Consistent logo sizing for ALL screens to prevent shifting */
 .splash-image img,
 .loading-image img,
 .frappe-loader img,
 [data-splash-image] img,
 .loading-screen img,
 .splash-screen img,
-.frappe-loading img {
-    width: 280px !important;  /* 160px * 1.75 = 280px to match login page size */
+.frappe-loading img,
+img[src*="renegade_logo_border.svg"],
+img[src*="renegade_logo_rounded.svg"] {
+    width: 280px !important;  /* 160px * 1.75 = 280px - CONSISTENT SIZE */
     height: 280px !important;
-    max-width: none !important;
-    max-height: none !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
     transform: none !important;  /* Remove any conflicting transforms */
+    transform-origin: center !important;
+    object-fit: contain !important;
 }
 
 /* Smooth transition after login */
@@ -95,9 +101,15 @@ div.social-logins,
     transition: none !important;
 }
 
-/* Prevent any background position shifts */
-* {
+/* Prevent any background position shifts - more specific targeting */
+html, body, 
+.page-container, .main-wrapper, .content,
+.loading-screen, .splash-screen, .frappe-loading,
+.login-content, .login-page {
     background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
 }
 
 /* Force logo to be rounded logo */
@@ -110,12 +122,17 @@ div.social-logins,
     max-height: 80px;
 }
 
-/* Login page logo - scale bordered version 1.75x bigger */
-img.app-logo,
-.app-logo img,
-img[src*="renegade_logo_border.svg"] {
+/* Login page logo - scale bordered version 1.75x bigger - ONLY on login page */
+.login-page img.app-logo,
+.login-content img.app-logo,
+.login-page .app-logo img,
+.login-content .app-logo img {
+    width: 160px !important;  /* Base size before scaling */
+    height: 160px !important;
     transform: scale(1.75) !important;
     transform-origin: center !important;
+    max-width: none !important;
+    max-height: none !important;
 }
 
 /* Login page specific title styling - only target login page h4 elements */
