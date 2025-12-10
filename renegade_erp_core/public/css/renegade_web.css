@@ -81,6 +81,21 @@ html, body {
     max-height: 80px;
 }
 
+/* Make login page center logo 30% bigger */
+.login-content .app-logo img,
+.login-content .website-logo img,
+.login-content .login-logo img,
+.login-page .app-logo img,
+.login-page .website-logo img,
+.login-page .login-logo img,
+.page-card-header .app-logo img,
+.page-card-header .website-logo img {
+    max-width: 260px !important;  /* 200px * 1.3 = 260px */
+    max-height: 104px !important; /* 80px * 1.3 = 104px */
+    transform: scale(1.3) !important;
+    transform-origin: center !important;
+}
+
 /* Login page title customization */
 .login-content h4,
 .login-content .page-title,
