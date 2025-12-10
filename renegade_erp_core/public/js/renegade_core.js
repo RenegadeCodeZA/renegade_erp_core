@@ -83,9 +83,31 @@ renegade_core = {
         $('.main-section, .page-wrapper, .container').css('background', 'transparent');
         
         console.log("Background image applied:", background_url);
+    },
+    
+    customize_login_page: function() {
+        // Change login title text
+        setTimeout(function() {
+            const loginTitles = document.querySelectorAll('.login-content h4, .page-card-header h4, .login-page .page-title, .login-page h1, .login-page h4');
+            loginTitles.forEach(function(title) {
+                if (title.textContent.includes('Frappe') || title.textContent.includes('Login')) {
+                    title.textContent = 'Login to Renegade';
+                    title.style.color = '#2596be';
+                    title.style.fontWeight = '600';
+                }
+            });
+            
+            console.log("Login page customized");
+        }, 100);
     }
 };
 
 $(window).on('load', function() {
     renegade_core.init();
+    renegade_core.customize_login_page();
+});
+
+// Also run on DOM ready for faster execution
+$(document).ready(function() {
+    renegade_core.customize_login_page();
 });

@@ -80,3 +80,50 @@ html, body {
     max-width: 200px;
     max-height: 80px;
 }
+
+/* Login page title customization */
+.login-content h4,
+.login-content .page-title,
+.login-content .login-title,
+.page-card-header h1,
+.page-card-header h4,
+.login-page .page-title,
+.login-page h1,
+.login-page h4 {
+    color: #2596be !important;
+}
+
+/* Change login title text */
+.login-content h4:after,
+.page-card-header h4:after,
+.login-page .page-title:after {
+    content: "Login to Renegade" !important;
+    color: #2596be !important;
+    font-weight: 600;
+}
+
+/* Hide original login title text */
+.login-content h4,
+.page-card-header h4,
+.login-page .page-title {
+    font-size: 0 !important;
+    line-height: 1.5;
+}
+
+/* Login button styling */
+.login-content .btn-primary,
+.login-page .btn-primary,
+.btn-login {
+    background-color: #f3dcdd !important;
+    border-color: #f3dcdd !important;
+    color: #ebc7c8 !important;
+    font-weight: 600 !important;
+}
+
+.login-content .btn-primary:hover,
+.login-page .btn-primary:hover,
+.btn-login:hover {
+    background-color: #f0d1d2 !important;
+    border-color: #f0d1d2 !important;
+    color: #e8c0c1 !important;
+}
