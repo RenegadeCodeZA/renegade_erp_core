@@ -38,3 +38,27 @@
     background-color: #234a87;
     border-color: #234a87;
 }
+
+/* Loading screen logo sizing */
+.splash-image img,
+.loading-image img,
+.frappe-loader img,
+[data-splash-image] img {
+    max-width: 300px !important;
+    max-height: 200px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* Splash screen container */
+.splash-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.splash-container img {
+    max-width: 300px !important;
+    max-height: 200px !important;
+}

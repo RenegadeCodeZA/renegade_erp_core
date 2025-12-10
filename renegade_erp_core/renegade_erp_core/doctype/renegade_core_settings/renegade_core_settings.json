@@ -84,7 +84,8 @@
    "fieldname": "application_logo",
    "fieldtype": "Attach",
    "label": "Application Logo",
-   "description": "Upload logo as public file for navbar and login page"
+   "description": "Upload logo as public file for navbar and login page",
+   "default": "/assets/renegade_erp_core/images/renegade_logo_default.svg"
   },
   {
    "fieldname": "column_break_7",
