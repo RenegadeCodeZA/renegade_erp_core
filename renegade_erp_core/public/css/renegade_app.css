@@ -143,16 +143,15 @@ h4 {
     font-size: 0 !important;
 }
 
-/* Make logo 15% bigger - aggressive targeting */
+/* Make logo original size with border */
 img.app-logo,
 .app-logo img,
 img[src*="renegade_logo_rounded.svg"] {
-    transform: scale(1.15) !important;
     transform-origin: center !important;
-    /* Remove fixed dimensions - let SVG use original proportions */
+    /* Remove scaling - use original size */
     max-width: none !important;
     max-height: none !important;
-    border: 12px solid #e8d7ba !important;  /* 2x thicker border */
+    border: 10px solid #e8d7ba !important;  /* 20% thinner than 12px */
     border-radius: 50% !important;  /* Perfect circle border */
     box-shadow: 0 0 8px rgba(232, 215, 186, 0.4) !important;  /* Light fuzzy effect */
     padding: 8px !important;

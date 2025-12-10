@@ -17,17 +17,16 @@
             }
         });
         
-        // Force logo scaling - 15% bigger with perfect circular border
+        // Force logo original size with circular border
         const logos = document.querySelectorAll('img.app-logo, .app-logo img, img[src*="renegade_logo"]');
         logos.forEach(function(logo) {
-            logo.style.transform = 'scale(1.15)';
+            // Remove scaling - use original size
             logo.style.transformOrigin = 'center';
-            // Remove fixed dimensions - let SVG use original proportions
-            logo.style.border = '12px solid #e8d7ba';  // 2x thicker border
+            logo.style.border = '10px solid #e8d7ba';  // 20% thinner than 12px
             logo.style.borderRadius = '50%';
             logo.style.boxShadow = '0 0 8px rgba(232, 215, 186, 0.4)';
             logo.style.padding = '8px';
-            console.log("Scaled logo with perfect circular border");
+            console.log("Logo with original size and circular border");
         });
     }
     
