@@ -27,7 +27,7 @@ web_include_js = "/assets/renegade_erp_core/js/renegade_web.js"
 # Website context
 website_context = {
 	"favicon": "/assets/renegade_erp_core/images/renegade_logo_rounded.svg",
-	"splash_image": "/assets/renegade_erp_core/images/renegade_logo_rounded.svg"
+	"splash_image": "/assets/renegade_erp_core/images/renegade_logo_border.svg"
 }
 
 # Boot session for dynamic configurations

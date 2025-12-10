@@ -47,7 +47,7 @@ nav.navbar.navbar-light.navbar-expand-lg {
     display: none !important;
 }
 
-/* Hide Home button on login page */
+/* Hide Home button and social logins on login page */
 .login-content .btn-home,
 .login-content .home-btn,
 .login-content a[href="/"],
@@ -55,7 +55,14 @@ nav.navbar.navbar-light.navbar-expand-lg {
     display: none !important;
 }
 
-/* Loading screen styling - prevent background shift */
+/* Hide social logins section completely */
+.social-logins,
+div.social-logins,
+.social-logins.text-center {
+    display: none !important;
+}
+
+/* Loading screen styling - prevent background shift and logo size changes */
 .loading-screen,
 .splash-screen,
 .frappe-loading {
@@ -64,6 +71,21 @@ nav.navbar.navbar-light.navbar-expand-lg {
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
     background-position: center center !important;
+}
+
+/* Consistent logo sizing for loading screens to prevent shifting */
+.splash-image img,
+.loading-image img,
+.frappe-loader img,
+[data-splash-image] img,
+.loading-screen img,
+.splash-screen img,
+.frappe-loading img {
+    width: 280px !important;  /* 160px * 1.75 = 280px to match login page size */
+    height: 280px !important;
+    max-width: none !important;
+    max-height: none !important;
+    transform: none !important;  /* Remove any conflicting transforms */
 }
 
 /* Smooth transition after login */

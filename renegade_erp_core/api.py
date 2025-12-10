@@ -21,17 +21,18 @@ def renegade_core_patch():
 		update_onboard_details()
 
 def set_default_branding():
-	"""Set default rounded logo and background image automatically"""
+	"""Set default logos and background image automatically"""
 	from frappe.installer import update_site_config
 	
-	# Set rounded logo as default
+	# Set logos - rounded for navbar/favicon, bordered for splash screen
 	rounded_logo = "/assets/renegade_erp_core/images/renegade_logo_rounded.svg"
+	bordered_logo = "/assets/renegade_erp_core/images/renegade_logo_border.svg"
 	background_image = "/assets/renegade_erp_core/images/renegade_background.svg"
 	
 	# Update Website Settings
 	website_settings = frappe.get_doc("Website Settings", "Website Settings")
 	website_settings.app_logo = rounded_logo
-	website_settings.splash_image = rounded_logo  
+	website_settings.splash_image = bordered_logo  # Use bordered logo for loading screen
 	website_settings.favicon = rounded_logo
 	website_settings.save(ignore_permissions=True)
 	

@@ -39,17 +39,20 @@
     border-color: #234a87;
 }
 
-/* Loading screen logo sizing */
+/* Loading screen logo sizing - consistent with login page */
 .splash-image img,
 .loading-image img,
 .frappe-loader img,
-[data-splash-image] img {
-    max-width: 300px !important;
-    max-height: 200px !important;
-    width: auto !important;
-    height: auto !important;
+[data-splash-image] img,
+.loading-screen img,
+.splash-screen img {
+    width: 280px !important;  /* 160px * 1.75 = 280px to match login page size */
+    height: 280px !important;
+    max-width: none !important;
+    max-height: none !important;
     position: relative !important;
     z-index: 100 !important;
+    transform: none !important;  /* Remove any conflicting transforms */
 }
 
 /* Splash screen container with background persistence */

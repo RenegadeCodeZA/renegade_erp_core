@@ -27,6 +27,13 @@
             logo.style.transformOrigin = 'center';
             console.log("Replaced with bordered logo and scaled 1.75x for login page");
         });
+        
+        // Hide social logins section completely
+        const socialLogins = document.querySelectorAll('.social-logins, div.social-logins, .social-logins.text-center');
+        socialLogins.forEach(function(element) {
+            element.style.display = 'none';
+            console.log("Hidden social logins section");
+        });
     }
     
     // Run immediately
