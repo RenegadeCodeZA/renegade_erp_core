@@ -99,16 +99,33 @@ body {
     background-position: center center !important;
 }
 
-/* Prevent background position changes */
+/* Prevent background position changes and margin/scrollbar issues */
 html, body {
     background-position: center center !important;
     background-attachment: fixed !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
 }
 
-/* Specific fix for loading screen margin issues */
-.loading-overlay, .frappe-loading, .page-loading, .loading-screen, .splash-container {
+/* During loading states, completely override any scrollbar behavior */
+body.loading, body:has(.loading-overlay), body:has(.frappe-loading), 
+body:has(.page-loading), body:has(.loading-screen), body:has(.splash-container),
+body:has(.centered.splash) {
+    overflow: hidden !important;
+    scrollbar-gutter: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+/* Comprehensive fix for ALL loading screen margin and logo issues */
+.loading-overlay, .frappe-loading, .page-loading, .loading-screen, .splash-container,
+.centered.splash, .loading-wrapper, .loader-wrapper, .app-loading {
+    background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center !important;
     background-position: center center !important;
     background-attachment: fixed !important;
     background-size: cover !important;
@@ -121,6 +138,7 @@ html, body {
     height: 100vh !important;
     position: fixed !important;
     top: 0 !important;
+    box-sizing: border-box !important;
 }
 
 /* Ensure smooth transitions after login */
@@ -150,7 +168,31 @@ body.logged-in {
     scrollbar-gutter: auto !important;
 }
 
-/* Ensure loading screen containers don't have margins/padding issues - specific to this loading screen */
+/* Force logo injection into ALL loading screens that might not have one */
+.loading-overlay:not(:has(img)):before, 
+.frappe-loading:not(:has(img)):before, 
+.page-loading:not(:has(img)):before, 
+.loading-screen:not(:has(img)):before,
+.splash-container:not(:has(img)):before,
+.loading-wrapper:not(:has(img)):before,
+.loader-wrapper:not(:has(img)):before,
+.app-loading:not(:has(img)):before {
+    content: '';
+    display: block;
+    width: 280px;
+    height: 280px;
+    background-image: url('/assets/renegade_erp_core/images/renegade_logo_border.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+/* Ensure loading screen containers don't have margins/padding issues */
 .centered.splash {
     margin: 0 !important;
     padding: 0 !important;
@@ -162,6 +204,9 @@ body.logged-in {
     right: 0 !important;
     background-position: center center !important;
     background-attachment: fixed !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 /* Navbar transparency to show background */
