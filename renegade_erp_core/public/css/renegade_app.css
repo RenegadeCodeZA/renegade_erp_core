@@ -39,7 +39,7 @@
     border-color: #234a87;
 }
 
-/* Force ALL loading screens to use same 280px logo size */
+/* ONLY loading screen logos - same 280px size */
 .splash-image img,
 .loading-image img,
 .frappe-loader img,
@@ -53,27 +53,26 @@
 .splash-container img,
 .app-loading img,
 .loader-wrapper img,
-.loading-wrapper img,
-img[style*="max-width: 100px"],
-img[style*="max-height: 100px"] {
+.loading-wrapper img {
     width: 280px !important;
     height: 280px !important;
     max-width: 280px !important;
     max-height: 280px !important;
     min-width: 280px !important;
     min-height: 280px !important;
-    transform: scale(1) !important;
+    transform: none !important;
     object-fit: contain !important;
 }
 
-/* Navbar logo - normal size, use rounded logo */
+/* Navbar logos only - normal size */
 .navbar img.app-logo,
-.navbar .app-logo img,
-.app-logo img:not(.splash-image img):not(.loading-image img):not(.frappe-loader img) {
+.navbar .app-logo img {
     width: auto !important;
-    height: 40px !important;  /* Normal navbar height */
+    height: 40px !important;
     max-width: 150px !important;
     max-height: 40px !important;
+    min-width: unset !important;
+    min-height: unset !important;
     transform: none !important;
 }
 
