@@ -164,8 +164,8 @@ body.logged-in {
     background-attachment: fixed !important;
 }
 
-/* Persistent loading screen overlay - Option 4 approach */
-.loading-screen-overlay {
+/* True visual freeze overlay - prevents ANY screen changes */
+.visual-freeze-overlay {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -173,33 +173,16 @@ body.logged-in {
     bottom: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    z-index: 99999 !important;
-    background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    z-index: 999999 !important;
+    background: white !important;
     opacity: 1 !important;
     visibility: visible !important;
-    animation: persistThenHide 3s ease-in-out forwards;
+    animation: freezeThenRelease 3s ease-in-out forwards;
     pointer-events: none !important;
 }
 
-.loading-screen-overlay::after {
-    content: '';
-    display: block;
-    width: 280px !important;
-    height: 280px !important;
-    background-image: url('/assets/renegade_erp_core/images/renegade_logo_border.svg') !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-}
-
-@keyframes persistThenHide {
-    0%, 90% { 
+@keyframes freezeThenRelease {
+    0%, 95% { 
         opacity: 1; 
         visibility: visible; 
     }
@@ -207,6 +190,7 @@ body.logged-in {
         opacity: 0; 
         visibility: hidden; 
         pointer-events: none;
+        display: none;
     }
 }
 

@@ -114,22 +114,35 @@ $(window).on('load', function() {
     renegade_core.customize_login_page();
 });
 
-// Persistent loading screen overlay functionality
-renegade_core.create_loading_overlay = function() {
-    // Remove any existing overlay
-    const existingOverlay = document.querySelector('.loading-screen-overlay');
+// True visual freeze functionality
+renegade_core.create_visual_freeze = function() {
+    // Remove any existing freeze overlay
+    const existingOverlay = document.querySelector('.visual-freeze-overlay');
     if (existingOverlay) {
         existingOverlay.remove();
     }
     
-    // Create new overlay
-    const overlay = document.createElement('div');
-    overlay.className = 'loading-screen-overlay';
+    // Capture current screen state by cloning the current body content
+    const bodyClone = document.body.cloneNode(true);
     
-    // Inject into body
-    document.body.appendChild(overlay);
+    // Create freeze overlay
+    const freezeOverlay = document.createElement('div');
+    freezeOverlay.className = 'visual-freeze-overlay';
     
-    console.log("Loading screen overlay created");
+    // Set the background to match what's currently showing
+    const currentBackground = window.getComputedStyle(document.body).background;
+    freezeOverlay.style.background = currentBackground;
+    
+    // Add the cloned content to the freeze overlay
+    freezeOverlay.appendChild(bodyClone);
+    
+    // Make the cloned content non-interactive
+    freezeOverlay.style.pointerEvents = 'none';
+    
+    // Inject freeze overlay on top of everything
+    document.body.appendChild(freezeOverlay);
+    
+    console.log("Visual freeze overlay created - screen frozen for 3 seconds");
 };
 
 // Monitor for SECOND/problematic loading screens only
@@ -158,9 +171,9 @@ renegade_core.monitor_loading_screens = function() {
                                 console.log("First loading screen detected - letting it work normally");
                                 firstLoadingScreenSeen = true;
                             } else {
-                                // This is a subsequent loading screen - overlay it!
-                                console.log("Second/problematic loading screen detected - creating overlay to cover it");
-                                renegade_core.create_loading_overlay();
+                                // This is a subsequent loading screen - freeze the current visual!
+                                console.log("Second/problematic loading screen detected - freezing current visual");
+                                renegade_core.create_visual_freeze();
                             }
                         }
                     }
