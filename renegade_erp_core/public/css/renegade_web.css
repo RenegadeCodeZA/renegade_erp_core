@@ -40,6 +40,13 @@ html, body {
     transition: all 0.3s ease;
 }
 
+/* Hide entire action bar/navbar on login page */
+.login-page .navbar,
+.login-content .navbar,
+nav.navbar.navbar-light.navbar-expand-lg {
+    display: none !important;
+}
+
 /* Hide Home button on login page */
 .login-content .btn-home,
 .login-content .home-btn,
@@ -82,18 +89,19 @@ html, body {
 }
 
 /* Make login page center logo 30% bigger */
-.login-content .app-logo img,
-.login-content .website-logo img,
-.login-content .login-logo img,
-.login-page .app-logo img,
-.login-page .website-logo img,
-.login-page .login-logo img,
-.page-card-header .app-logo img,
-.page-card-header .website-logo img {
-    max-width: 260px !important;  /* 200px * 1.3 = 260px */
-    max-height: 104px !important; /* 80px * 1.3 = 104px */
+.app-logo,
+.login-content .app-logo,
+.login-page .app-logo,
+.page-card-header .app-logo {
     transform: scale(1.3) !important;
     transform-origin: center !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+.app-logo img {
+    max-width: 260px !important;  /* 200px * 1.3 = 260px */
+    max-height: 104px !important; /* 80px * 1.3 = 104px */
 }
 
 /* Login page title customization */
@@ -131,7 +139,7 @@ html, body {
 .btn-login {
     background-color: #f3dcdd !important;
     border-color: #f3dcdd !important;
-    color: #ebc7c8 !important;
+    color: #d4a5a7 !important;  /* Darker text color */
     font-weight: 600 !important;
 }
 
@@ -140,5 +148,5 @@ html, body {
 .btn-login:hover {
     background-color: #f0d1d2 !important;
     border-color: #f0d1d2 !important;
-    color: #e8c0c1 !important;
+    color: #c89597 !important;  /* Even darker on hover */
 }

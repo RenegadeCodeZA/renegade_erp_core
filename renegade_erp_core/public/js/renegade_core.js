@@ -88,13 +88,20 @@ renegade_core = {
     customize_login_page: function() {
         // Change login title text
         setTimeout(function() {
-            const loginTitles = document.querySelectorAll('.login-content h4, .page-card-header h4, .login-page .page-title, .login-page h1, .login-page h4');
+            // Target the specific h4 element you found
+            const loginTitles = document.querySelectorAll('h4, .login-content h4, .page-card-header h4, .login-page .page-title, .login-page h1, .login-page h4');
             loginTitles.forEach(function(title) {
-                if (title.textContent.includes('Frappe') || title.textContent.includes('Login')) {
+                if (title.textContent.includes('Frappe') || title.textContent.includes('Login to Frappe')) {
                     title.textContent = 'Login to Renegade';
                     title.style.color = '#2596be';
                     title.style.fontWeight = '600';
                 }
+            });
+            
+            // Also hide the navbar
+            const navbars = document.querySelectorAll('nav.navbar.navbar-light.navbar-expand-lg');
+            navbars.forEach(function(navbar) {
+                navbar.style.display = 'none';
             });
             
             console.log("Login page customized");
