@@ -114,7 +114,37 @@ $(window).on('load', function() {
     renegade_core.customize_login_page();
 });
 
-// Also run on DOM ready for faster execution
+// Run immediately and repeatedly to catch dynamic content
 $(document).ready(function() {
     renegade_core.customize_login_page();
+    
+    // Keep trying every 500ms for 10 seconds
+    let attempts = 0;
+    const interval = setInterval(function() {
+        attempts++;
+        
+        // Force text change
+        const h4Elements = document.querySelectorAll('h4');
+        h4Elements.forEach(function(h4) {
+            if (h4.textContent.includes('Frappe')) {
+                h4.textContent = 'Login to Renegade';
+                h4.style.color = '#2596be';
+                h4.style.fontWeight = '600';
+                h4.style.fontSize = '24px';
+            }
+        });
+        
+        // Force logo scaling
+        const logos = document.querySelectorAll('img.app-logo, .app-logo img, img[src*="renegade_logo"]');
+        logos.forEach(function(logo) {
+            logo.style.transform = 'scale(1.3)';
+            logo.style.transformOrigin = 'center';
+            logo.style.width = '260px';
+            logo.style.height = 'auto';
+        });
+        
+        if (attempts > 20) { // Stop after 10 seconds
+            clearInterval(interval);
+        }
+    }, 500);
 });

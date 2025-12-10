@@ -88,49 +88,52 @@ nav.navbar.navbar-light.navbar-expand-lg {
     max-height: 80px;
 }
 
-/* Make login page center logo 30% bigger */
-.app-logo,
-.login-content .app-logo,
-.login-page .app-logo,
-.page-card-header .app-logo {
+/* Make login page center logo 30% bigger - more aggressive targeting */
+img.app-logo,
+.app-logo img,
+img[src*="renegade_logo_rounded.svg"] {
     transform: scale(1.3) !important;
     transform-origin: center !important;
-    display: block !important;
-    margin: 0 auto !important;
+    width: 260px !important;  /* Force larger size */
+    height: 104px !important;
+    max-width: none !important;
+    max-height: none !important;
 }
 
-.app-logo img {
-    max-width: 260px !important;  /* 200px * 1.3 = 260px */
-    max-height: 104px !important; /* 80px * 1.3 = 104px */
-}
-
-/* Login page title customization */
-.login-content h4,
-.login-content .page-title,
-.login-content .login-title,
-.page-card-header h1,
-.page-card-header h4,
-.login-page .page-title,
-.login-page h1,
-.login-page h4 {
+/* Force login title text and color */
+h4 {
     color: #2596be !important;
+    font-weight: 600 !important;
 }
 
-/* Change login title text */
-.login-content h4:after,
-.page-card-header h4:after,
-.login-page .page-title:after {
+/* Replace text with CSS */
+h4:before {
     content: "Login to Renegade" !important;
     color: #2596be !important;
-    font-weight: 600;
+    font-weight: 600 !important;
+    font-size: 24px !important;
 }
 
-/* Hide original login title text */
+/* Hide original text */
+h4 {
+    font-size: 0 !important;
+}
+
+/* Also target more specific selectors */
 .login-content h4,
 .page-card-header h4,
-.login-page .page-title {
+.login-page h4 {
+    color: #2596be !important;
     font-size: 0 !important;
-    line-height: 1.5;
+}
+
+.login-content h4:before,
+.page-card-header h4:before,
+.login-page h4:before {
+    content: "Login to Renegade" !important;
+    color: #2596be !important;
+    font-weight: 600 !important;
+    font-size: 24px !important;
 }
 
 /* Login button styling */
