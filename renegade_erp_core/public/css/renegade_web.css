@@ -102,14 +102,14 @@ img[src*="renegade_logo_rounded.svg"] {
 
 /* Force login title text and color */
 h4 {
-    color: #f3dcdd !important;
+    color: #b12025 !important;
     font-weight: 600 !important;
 }
 
 /* Replace text with CSS */
 h4:before {
     content: "Login to Renegade" !important;
-    color: #f3dcdd !important;
+    color: #b12025 !important;
     font-weight: 600 !important;
     font-size: 24px !important;
 }
@@ -140,16 +140,16 @@ h4 {
 .login-content .btn-primary,
 .login-page .btn-primary,
 .btn-login {
-    background-color: #f3dcdd !important;
-    border-color: #f3dcdd !important;
-    color: #d4a5a7 !important;  /* Darker text color */
+    background-color: #b6494d !important;
+    border-color: #b6494d !important;
+    color: #892e31 !important;
     font-weight: 600 !important;
 }
 
 .login-content .btn-primary:hover,
 .login-page .btn-primary:hover,
 .btn-login:hover {
-    background-color: #f0d1d2 !important;
-    border-color: #f0d1d2 !important;
-    color: #c89597 !important;  /* Even darker on hover */
+    background-color: #a03c40 !important;  /* Darker red on hover */
+    border-color: #a03c40 !important;
+    color: #6b2326 !important;  /* Darker text on hover */
 }

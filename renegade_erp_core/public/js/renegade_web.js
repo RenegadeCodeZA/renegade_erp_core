@@ -10,7 +10,7 @@
         h4Elements.forEach(function(h4) {
             if (h4.textContent.includes('Frappe')) {
                 h4.textContent = 'Login to Renegade';
-                h4.style.color = '#f3dcdd';
+                h4.style.color = '#b12025';
                 h4.style.fontWeight = '600';
                 h4.style.fontSize = '24px';
                 console.log("Changed h4 text");

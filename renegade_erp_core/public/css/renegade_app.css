@@ -126,14 +126,14 @@ body.logged-in {
 /* LOGIN PAGE FIXES - Backup in app CSS */
 /* Force login title text and color */
 h4 {
-    color: #f3dcdd !important;
+    color: #b12025 !important;
     font-weight: 600 !important;
 }
 
 /* Replace text with CSS */
 h4:before {
     content: "Login to Renegade" !important;
-    color: #f3dcdd !important;
+    color: #b12025 !important;
     font-weight: 600 !important;
     font-size: 24px !important;
 }
