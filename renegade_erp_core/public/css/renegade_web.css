@@ -96,30 +96,12 @@ img[src*="renegade_logo_border.svg"] {
     transform-origin: center !important;
 }
 
-/* Force login title text and color */
-h4 {
-    color: #b12025 !important;
-    font-weight: 600 !important;
-}
-
-/* Replace text with CSS */
-h4:before {
-    content: "Login to Renegade" !important;
-    color: #b12025 !important;
-    font-weight: 600 !important;
-    font-size: 24px !important;
-}
-
-/* Hide original text */
-h4 {
-    font-size: 0 !important;
-}
-
-/* Also target more specific selectors */
+/* Login page specific title styling - only target login page h4 elements */
 .login-content h4,
 .page-card-header h4,
 .login-page h4 {
-    color: #2596be !important;
+    color: #b12025 !important;
+    font-weight: 600 !important;
     font-size: 0 !important;
 }
 
@@ -127,7 +109,7 @@ h4 {
 .page-card-header h4:before,
 .login-page h4:before {
     content: "Login to Renegade" !important;
-    color: #2596be !important;
+    color: #b12025 !important;
     font-weight: 600 !important;
     font-size: 24px !important;
 }

@@ -123,25 +123,7 @@ body.logged-in {
     background-attachment: fixed !important;
 }
 
-/* LOGIN PAGE FIXES - Backup in app CSS */
-/* Force login title text and color */
-h4 {
-    color: #b12025 !important;
-    font-weight: 600 !important;
-}
-
-/* Replace text with CSS */
-h4:before {
-    content: "Login to Renegade" !important;
-    color: #b12025 !important;
-    font-weight: 600 !important;
-    font-size: 24px !important;
-}
-
-/* Hide original text */
-h4 {
-    font-size: 0 !important;
-}
+/* LOGIN PAGE FIXES - Remove broad h4 targeting to prevent affecting other pages */
 
 /* App logo - keep using rounded version for non-login pages */
 img.app-logo,
