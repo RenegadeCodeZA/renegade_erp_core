@@ -1,0 +1,2 @@
+# Patch files for updates and migrations
+# execute:frappe.reload_doctype("DocType Name")

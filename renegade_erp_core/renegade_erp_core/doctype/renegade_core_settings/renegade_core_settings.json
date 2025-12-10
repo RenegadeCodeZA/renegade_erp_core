@@ -1,0 +1,193 @@
+{
+ "actions": [],
+ "creation": "2024-12-10 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "general_settings_tab",
+  "general_section",
+  "disable_onboarding",
+  "show_help_menu",
+  "column_break_3",
+  "disable_system_notifications",
+  "disable_change_log_notifications",
+  "logo_settings_tab",
+  "logo_section",
+  "application_logo",
+  "column_break_7",
+  "logo_height",
+  "logo_width",
+  "navbar_settings_tab",
+  "navbar_section",
+  "navbar_background_color",
+  "application_name",
+  "column_break_12",
+  "custom_navbar_title",
+  "navbar_title_style",
+  "email_settings_tab",
+  "email_section",
+  "email_footer_address",
+  "column_break_17",
+  "disable_standard_email_footer"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "General Settings"
+  },
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "System Behavior"
+  },
+  {
+   "fieldname": "disable_onboarding",
+   "fieldtype": "Check",
+   "label": "Disable Onboarding",
+   "default": "0"
+  },
+  {
+   "fieldname": "show_help_menu",
+   "fieldtype": "Check",
+   "label": "Show Help Menu",
+   "default": "1"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "disable_system_notifications",
+   "fieldtype": "Check",
+   "label": "Disable System Update Notifications",
+   "default": "0"
+  },
+  {
+   "fieldname": "disable_change_log_notifications",
+   "fieldtype": "Check",
+   "label": "Disable Change Log Notifications",
+   "default": "0"
+  },
+  {
+   "fieldname": "logo_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Logo Settings"
+  },
+  {
+   "fieldname": "logo_section",
+   "fieldtype": "Section Break",
+   "label": "Application Logo"
+  },
+  {
+   "fieldname": "application_logo",
+   "fieldtype": "Attach",
+   "label": "Application Logo",
+   "description": "Upload logo as public file for navbar and login page"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "logo_height",
+   "fieldtype": "Int",
+   "label": "Logo Height (px)",
+   "description": "Logo height in pixels"
+  },
+  {
+   "fieldname": "logo_width",
+   "fieldtype": "Int",
+   "label": "Logo Width (px)",
+   "description": "Logo width in pixels"
+  },
+  {
+   "fieldname": "navbar_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Navbar Settings"
+  },
+  {
+   "fieldname": "navbar_section",
+   "fieldtype": "Section Break",
+   "label": "Navigation Bar Customization"
+  },
+  {
+   "fieldname": "navbar_background_color",
+   "fieldtype": "Data",
+   "label": "Navbar Background Color",
+   "description": "Hex color code (e.g. #2d5aa0)"
+  },
+  {
+   "fieldname": "application_name",
+   "fieldtype": "Data",
+   "label": "Application Name",
+   "description": "Custom name displayed in the system"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "custom_navbar_title",
+   "fieldtype": "Data",
+   "label": "Custom Navbar Title"
+  },
+  {
+   "fieldname": "navbar_title_style",
+   "fieldtype": "Code",
+   "label": "Navbar Title CSS",
+   "options": "CSS"
+  },
+  {
+   "fieldname": "email_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Email Settings"
+  },
+  {
+   "fieldname": "email_section",
+   "fieldtype": "Section Break",
+   "label": "Email Footer"
+  },
+  {
+   "fieldname": "email_footer_address",
+   "fieldtype": "Small Text",
+   "label": "Email Footer Address"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "disable_standard_email_footer",
+   "fieldtype": "Check",
+   "label": "Disable Standard Email Footer",
+   "default": "0"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-12-10 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Renegade ERP Core",
+ "name": "Renegade Core Settings",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

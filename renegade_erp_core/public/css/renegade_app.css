@@ -1,0 +1,40 @@
+/* Renegade ERP Core Application Styles */
+
+.renegade-module-section {
+    border: 1px solid #e4e4e4;
+    border-radius: 6px;
+    margin: 15px 0;
+    background: #ffffff;
+}
+
+.renegade-module-header {
+    background: #f8f9fa;
+    padding: 12px 15px;
+    border-bottom: 1px solid #e4e4e4;
+    font-weight: 600;
+    color: #2d5aa0;
+}
+
+.renegade-module-content {
+    padding: 15px;
+}
+
+.renegade-core-icon {
+    color: #2d5aa0;
+    margin-right: 8px;
+}
+
+/* Custom form styling */
+.renegade-settings-form .form-control {
+    border-radius: 4px;
+}
+
+.renegade-settings-form .btn-primary {
+    background-color: #2d5aa0;
+    border-color: #2d5aa0;
+}
+
+.renegade-settings-form .btn-primary:hover {
+    background-color: #234a87;
+    border-color: #234a87;
+}

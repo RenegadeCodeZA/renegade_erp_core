@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include renegade_erp_core *.css
+recursive-include renegade_erp_core *.csv
+recursive-include renegade_erp_core *.html
+recursive-include renegade_erp_core *.ico
+recursive-include renegade_erp_core *.js
+recursive-include renegade_erp_core *.json
+recursive-include renegade_erp_core *.md
+recursive-include renegade_erp_core *.png
+recursive-include renegade_erp_core *.py
+recursive-include renegade_erp_core *.svg
+recursive-include renegade_erp_core *.txt
+recursive-exclude renegade_erp_core *.pyc
