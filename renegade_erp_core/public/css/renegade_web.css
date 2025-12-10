@@ -88,28 +88,28 @@ nav.navbar.navbar-light.navbar-expand-lg {
     max-height: 80px;
 }
 
-/* Make login page center logo 30% bigger - more aggressive targeting */
+/* Make login page center logo 15% bigger - more aggressive targeting */
 img.app-logo,
 .app-logo img,
 img[src*="renegade_logo_rounded.svg"] {
-    transform: scale(1.3) !important;
+    transform: scale(1.15) !important;
     transform-origin: center !important;
-    width: 260px !important;  /* Force larger size */
-    height: 104px !important;
+    width: 230px !important;  /* Force larger size - 15% increase */
+    height: 92px !important;
     max-width: none !important;
     max-height: none !important;
 }
 
 /* Force login title text and color */
 h4 {
-    color: #2596be !important;
+    color: #f3dcdd !important;
     font-weight: 600 !important;
 }
 
 /* Replace text with CSS */
 h4:before {
     content: "Login to Renegade" !important;
-    color: #2596be !important;
+    color: #f3dcdd !important;
     font-weight: 600 !important;
     font-size: 24px !important;
 }

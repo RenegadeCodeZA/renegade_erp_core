@@ -10,19 +10,19 @@
         h4Elements.forEach(function(h4) {
             if (h4.textContent.includes('Frappe')) {
                 h4.textContent = 'Login to Renegade';
-                h4.style.color = '#2596be';
+                h4.style.color = '#f3dcdd';
                 h4.style.fontWeight = '600';
                 h4.style.fontSize = '24px';
                 console.log("Changed h4 text");
             }
         });
         
-        // Force logo scaling
+        // Force logo scaling - 15% bigger
         const logos = document.querySelectorAll('img.app-logo, .app-logo img, img[src*="renegade_logo"]');
         logos.forEach(function(logo) {
-            logo.style.transform = 'scale(1.3)';
+            logo.style.transform = 'scale(1.15)';
             logo.style.transformOrigin = 'center';
-            logo.style.width = '260px';
+            logo.style.width = '230px';
             logo.style.height = 'auto';
             console.log("Scaled logo");
         });
