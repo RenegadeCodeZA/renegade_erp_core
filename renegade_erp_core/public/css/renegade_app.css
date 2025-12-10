@@ -143,26 +143,9 @@ h4 {
     font-size: 0 !important;
 }
 
-/* App logo with circular outline */
+/* App logo - keep using rounded version for non-login pages */
 img.app-logo,
 .app-logo img,
-img[src*="renegade_logo_rounded.svg"] {
-    /* Use original SVG size and positioning */
-    position: relative !important;
-}
-
-/* Create circular outline using CSS pseudo-element approach */
-img.app-logo::after,
-.app-logo img::after,
-img[src*="renegade_logo_rounded.svg"]::after {
-    content: "" !important;
-    position: absolute !important;
-    top: -8px !important;
-    left: -8px !important;
-    width: 176px !important;  /* 160px + (8px * 2) for border positioning */
-    height: 176px !important; /* Perfect square for circle */
-    border: 8px solid #e8d7ba !important;
-    border-radius: 50% !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
+img[src*="renegade_logo"] {
+    /* No special styling needed */
 }

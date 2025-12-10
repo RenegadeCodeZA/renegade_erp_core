@@ -17,38 +17,12 @@
             }
         });
         
-        // Create circular outline for logo using JavaScript overlay approach
+        // Replace logo with bordered version specifically for login page
         const logos = document.querySelectorAll('img.app-logo, .app-logo img, img[src*="renegade_logo"]');
         logos.forEach(function(logo) {
-            // Ensure logo uses original size
-            logo.style.position = 'relative';
-            
-            // Create circular outline element
-            const outline = document.createElement('div');
-            outline.style.position = 'absolute';
-            outline.style.top = '-8px';
-            outline.style.left = '-8px';
-            outline.style.width = '176px';  // 160px + 16px for border positioning
-            outline.style.height = '176px';
-            outline.style.border = '8px solid #e8d7ba';
-            outline.style.borderRadius = '50%';
-            outline.style.pointerEvents = 'none';
-            outline.style.zIndex = '1';
-            outline.className = 'logo-circular-outline';
-            
-            // Remove any existing outline
-            const existingOutline = logo.parentNode.querySelector('.logo-circular-outline');
-            if (existingOutline) {
-                existingOutline.remove();
-            }
-            
-            // Add outline to logo's parent
-            if (logo.parentNode) {
-                logo.parentNode.style.position = 'relative';
-                logo.parentNode.appendChild(outline);
-            }
-            
-            console.log("Added circular outline to logo");
+            // Only replace on login page - use bordered SVG that includes the border
+            logo.src = '/assets/renegade_erp_core/images/renegade_logo_border.svg';
+            console.log("Replaced with bordered logo for login page");
         });
     }
     
