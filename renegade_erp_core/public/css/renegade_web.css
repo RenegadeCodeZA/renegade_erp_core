@@ -88,11 +88,12 @@ nav.navbar.navbar-light.navbar-expand-lg {
     max-height: 80px;
 }
 
-/* Login page logo - use bordered version */
+/* Login page logo - scale bordered version 1.75x bigger */
 img.app-logo,
 .app-logo img,
-img[src*="renegade_logo"] {
-    /* Remove any border styling - logo with border is now built into SVG */
+img[src*="renegade_logo_border.svg"] {
+    transform: scale(1.75) !important;
+    transform-origin: center !important;
 }
 
 /* Force login title text and color */
@@ -135,16 +136,16 @@ h4 {
 .login-content .btn-primary,
 .login-page .btn-primary,
 .btn-login {
-    background-color: #b6494d !important;
-    border-color: #b6494d !important;
-    color: #892e31 !important;
+    background-color: #ebc7c8 !important;  /* New lighter fill color */
+    border-color: #ebc7c8 !important;
+    color: #b6494d !important;  /* Text now uses old fill color */
     font-weight: 600 !important;
 }
 
 .login-content .btn-primary:hover,
 .login-page .btn-primary:hover,
 .btn-login:hover {
-    background-color: #a03c40 !important;  /* Darker red on hover */
-    border-color: #a03c40 !important;
-    color: #6b2326 !important;  /* Darker text on hover */
+    background-color: #e0b5b6 !important;  /* Slightly darker version of new fill for hover */
+    border-color: #e0b5b6 !important;
+    color: #a03c40 !important;  /* Darker text on hover */
 }

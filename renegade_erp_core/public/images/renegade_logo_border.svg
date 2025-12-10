@@ -1,31 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
-  <!-- Background -->
-  <rect width="100%" height="100%" fill="white"/>
 
-  <g transform="translate(20,20)">
+  <!-- Outer ring (#e8d7ba) -->
+  <circle cx="80" cy="80" r="63"
+          fill="none"
+          stroke="#e8d7ba"
+          stroke-width="4"/>
 
-    <!-- NEW outer ring -->
-    <circle cx="60" cy="60" r="63"
-            fill="none"
-            stroke="#e8d7ba"
-            stroke-width="4"/>
+  <!-- Original brown ring -->
+  <circle cx="80" cy="80" r="55"
+          fill="none"
+          stroke="#4B2E24"
+          stroke-width="8"/>
 
-    <!-- Original brown ring -->
-    <circle cx="60" cy="60" r="55"
-            fill="none"
-            stroke="#4B2E24"
-            stroke-width="8"/>
+  <!-- Red vertical bar -->
+  <path d="M80 45 L80 115"
+        stroke="#B12025"
+        stroke-width="10"
+        stroke-linecap="round"/>
 
-    <!-- Red vertical bar -->
-    <path d="M60 25 L60 95"
-          stroke="#B12025"
-          stroke-width="10"
-          stroke-linecap="round"/>
+  <!-- Red angled bar -->
+  <path d="M80 80 L115 45"
+        stroke="#B12025"
+        stroke-width="10"
+        stroke-linecap="round"/>
 
-    <!-- Red angled bar -->
-    <path d="M60 60 L95 25"
-          stroke="#B12025"
-          stroke-width="10"
-          stroke-linecap="round"/>
-  </g>
 </svg>
