@@ -17,16 +17,38 @@
             }
         });
         
-        // Force logo original size with circular border
+        // Create circular outline for logo using JavaScript overlay approach
         const logos = document.querySelectorAll('img.app-logo, .app-logo img, img[src*="renegade_logo"]');
         logos.forEach(function(logo) {
-            // Remove scaling - use original size
-            logo.style.transformOrigin = 'center';
-            logo.style.border = '10px solid #e8d7ba';  // 20% thinner than 12px
-            logo.style.borderRadius = '50%';
-            logo.style.boxShadow = '0 0 8px rgba(232, 215, 186, 0.4)';
-            logo.style.padding = '8px';
-            console.log("Logo with original size and circular border");
+            // Ensure logo uses original size
+            logo.style.position = 'relative';
+            
+            // Create circular outline element
+            const outline = document.createElement('div');
+            outline.style.position = 'absolute';
+            outline.style.top = '-8px';
+            outline.style.left = '-8px';
+            outline.style.width = '176px';  // 160px + 16px for border positioning
+            outline.style.height = '176px';
+            outline.style.border = '8px solid #e8d7ba';
+            outline.style.borderRadius = '50%';
+            outline.style.pointerEvents = 'none';
+            outline.style.zIndex = '1';
+            outline.className = 'logo-circular-outline';
+            
+            // Remove any existing outline
+            const existingOutline = logo.parentNode.querySelector('.logo-circular-outline');
+            if (existingOutline) {
+                existingOutline.remove();
+            }
+            
+            // Add outline to logo's parent
+            if (logo.parentNode) {
+                logo.parentNode.style.position = 'relative';
+                logo.parentNode.appendChild(outline);
+            }
+            
+            console.log("Added circular outline to logo");
         });
     }
     

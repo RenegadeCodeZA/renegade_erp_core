@@ -143,16 +143,26 @@ h4 {
     font-size: 0 !important;
 }
 
-/* Make logo original size with border */
+/* App logo with circular outline */
 img.app-logo,
 .app-logo img,
 img[src*="renegade_logo_rounded.svg"] {
-    transform-origin: center !important;
-    /* Remove scaling - use original size */
-    max-width: none !important;
-    max-height: none !important;
-    border: 10px solid #e8d7ba !important;  /* 20% thinner than 12px */
-    border-radius: 50% !important;  /* Perfect circle border */
-    box-shadow: 0 0 8px rgba(232, 215, 186, 0.4) !important;  /* Light fuzzy effect */
-    padding: 8px !important;
+    /* Use original SVG size and positioning */
+    position: relative !important;
+}
+
+/* Create circular outline using CSS pseudo-element approach */
+img.app-logo::after,
+.app-logo img::after,
+img[src*="renegade_logo_rounded.svg"]::after {
+    content: "" !important;
+    position: absolute !important;
+    top: -8px !important;
+    left: -8px !important;
+    width: 176px !important;  /* 160px + (8px * 2) for border positioning */
+    height: 176px !important; /* Perfect square for circle */
+    border: 8px solid #e8d7ba !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
 }
