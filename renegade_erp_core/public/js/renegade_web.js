@@ -17,18 +17,19 @@
             }
         });
         
-        // Force logo scaling - 15% bigger with border
+        // Force logo scaling - 15% bigger with perfect circular border
         const logos = document.querySelectorAll('img.app-logo, .app-logo img, img[src*="renegade_logo"]');
         logos.forEach(function(logo) {
             logo.style.transform = 'scale(1.15)';
             logo.style.transformOrigin = 'center';
             logo.style.width = '230px';
-            logo.style.height = 'auto';
-            logo.style.border = '2px solid #e8d7ba';
+            logo.style.height = '230px';  // Make height same as width for perfect circle
+            logo.style.border = '6px solid #e8d7ba';  // 3x thicker border
             logo.style.borderRadius = '50%';
             logo.style.boxShadow = '0 0 8px rgba(232, 215, 186, 0.4)';
             logo.style.padding = '8px';
-            console.log("Scaled logo with border");
+            logo.style.objectFit = 'cover';  // Ensure SVG fits properly in square container
+            console.log("Scaled logo with perfect circular border");
         });
     }
     

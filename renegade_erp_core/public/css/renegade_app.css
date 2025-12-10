@@ -150,11 +150,12 @@ img[src*="renegade_logo_rounded.svg"] {
     transform: scale(1.15) !important;
     transform-origin: center !important;
     width: 230px !important;
-    height: 92px !important;
+    height: 230px !important;  /* Make height same as width for perfect circle */
     max-width: none !important;
     max-height: none !important;
-    border: 2px solid #e8d7ba !important;
-    border-radius: 50% !important;  /* Rounded border to match rounded logo */
+    border: 6px solid #e8d7ba !important;  /* 3x thicker border */
+    border-radius: 50% !important;  /* Perfect circle border */
     box-shadow: 0 0 8px rgba(232, 215, 186, 0.4) !important;  /* Light fuzzy effect */
     padding: 8px !important;
+    object-fit: cover !important;  /* Ensure SVG fits properly in square container */
 }
