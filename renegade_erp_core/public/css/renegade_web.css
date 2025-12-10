@@ -12,3 +12,40 @@
 .renegade-web-header {
     border-bottom: 2px solid #2d5aa0;
 }
+
+/* Force login page background */
+body {
+    background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Login page specific styling */
+.login-content {
+    background: transparent !important;
+}
+
+.login-content .card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Loading screen styling */
+.loading-screen,
+.splash-screen {
+    background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+/* Force logo to be rounded logo */
+.app-logo img,
+.website-logo img,
+.login-logo img,
+.navbar-brand img {
+    content: url('/assets/renegade_erp_core/images/renegade_logo_rounded.svg') !important;
+    max-width: 200px;
+    max-height: 80px;
+}

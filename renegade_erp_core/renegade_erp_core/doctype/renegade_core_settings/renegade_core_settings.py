@@ -18,6 +18,8 @@ class RenegadeCoreSettings(Document):
 		self.disable_onboarding_settings(system_settings_doc)
 		self.set_notification_settings(system_settings_doc)
 		self.set_email_footer(system_settings_doc)
+		self.set_login_screen_logo(website_doc)
+		self.set_background_image()
 		
 		system_settings_doc.save(ignore_permissions=True)
 		navbar_settings_doc.save(ignore_permissions=True)
@@ -73,3 +75,24 @@ class RenegadeCoreSettings(Document):
 			system_settings_doc.email_footer_address = self.email_footer_address
 		system_settings_doc.disable_standard_email_footer = self.disable_standard_email_footer
 		system_settings_doc.hide_footer_in_auto_email_reports = self.disable_standard_email_footer
+
+	def set_login_screen_logo(self, website_doc):
+		"""Force login screen to use rounded logo"""
+		rounded_logo = "/assets/renegade_erp_core/images/renegade_logo_rounded.svg"
+		website_doc.app_logo = rounded_logo
+		website_doc.splash_image = rounded_logo
+		website_doc.favicon = rounded_logo
+		
+		# Also update site config for login page
+		update_site_config("app_logo_url", rounded_logo)
+		
+	def set_background_image(self):
+		"""Set background image across the system"""
+		background_image = self.background_image or "/assets/renegade_erp_core/images/renegade_background.svg"
+		
+		# Store in site config so it's available everywhere
+		update_site_config("background_image_url", background_image)
+		
+		# Clear website cache to apply changes immediately
+		from frappe.website.utils import clear_cache
+		clear_cache()
