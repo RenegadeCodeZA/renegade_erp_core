@@ -98,22 +98,12 @@ div.social-logins,
     transition: none !important;
 }
 
-/* Prevent any background position shifts and margins during loading */
-html, body, 
-.page-container, .main-wrapper, .content,
-.loading-screen, .splash-screen, .frappe-loading,
-.login-content, .login-page,
-#app, .app, .wrapper, .page-wrapper,
-.container, .container-fluid,
-.page-content, .main-content {
+/* Prevent any background position shifts - more specific targeting */
+html, body {
     background-position: center center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
 }
 
 /* Force logo to be rounded logo */
@@ -126,16 +116,14 @@ html, body,
     max-height: 80px;
 }
 
-/* Login page logo - ORIGINAL SIZE, no scaling */
+/* Login page logo ONLY - use bordered version scaled 1.75x */
 .login-page img.app-logo,
 .login-content img.app-logo,
 .login-page .app-logo img,
-.login-content .app-logo img {
-    width: 160px !important;  /* Original size - no scaling */
-    height: 160px !important;
-    transform: none !important;
-    max-width: 160px !important;
-    max-height: 160px !important;
+.login-content .app-logo img,
+img[src*="renegade_logo_border.svg"]:not(.navbar img):not(.navbar *) {
+    transform: scale(1.75) !important;
+    transform-origin: center !important;
 }
 
 /* Login page specific title styling - only target login page h4 elements */
