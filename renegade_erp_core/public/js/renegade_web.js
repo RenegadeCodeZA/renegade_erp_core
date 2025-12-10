@@ -22,13 +22,11 @@
         logos.forEach(function(logo) {
             logo.style.transform = 'scale(1.15)';
             logo.style.transformOrigin = 'center';
-            logo.style.width = '230px';
-            logo.style.height = '230px';  // Make height same as width for perfect circle
-            logo.style.border = '6px solid #e8d7ba';  // 3x thicker border
+            // Remove fixed dimensions - let SVG use original proportions
+            logo.style.border = '12px solid #e8d7ba';  // 2x thicker border
             logo.style.borderRadius = '50%';
             logo.style.boxShadow = '0 0 8px rgba(232, 215, 186, 0.4)';
             logo.style.padding = '8px';
-            logo.style.objectFit = 'cover';  // Ensure SVG fits properly in square container
             console.log("Scaled logo with perfect circular border");
         });
     }
