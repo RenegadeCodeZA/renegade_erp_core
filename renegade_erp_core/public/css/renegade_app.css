@@ -39,7 +39,7 @@
     border-color: #234a87;
 }
 
-/* ALL loading screens - consistent 280px logo sizing */
+/* Force ALL loading screens to use same 280px logo size */
 .splash-image img,
 .loading-image img,
 .frappe-loader img,
@@ -53,16 +53,16 @@
 .splash-container img,
 .app-loading img,
 .loader-wrapper img,
-.loading-wrapper img {
+.loading-wrapper img,
+img[style*="max-width: 100px"],
+img[style*="max-height: 100px"] {
     width: 280px !important;
     height: 280px !important;
     max-width: 280px !important;
     max-height: 280px !important;
     min-width: 280px !important;
     min-height: 280px !important;
-    position: relative !important;
-    z-index: 100 !important;
-    transform: none !important;
+    transform: scale(1) !important;
     object-fit: contain !important;
 }
 
