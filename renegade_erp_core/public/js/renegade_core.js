@@ -114,90 +114,10 @@ $(window).on('load', function() {
     renegade_core.customize_login_page();
 });
 
-// True visual freeze functionality
-renegade_core.create_visual_freeze = function() {
-    // Remove any existing freeze overlay
-    const existingOverlay = document.querySelector('.visual-freeze-overlay');
-    if (existingOverlay) {
-        existingOverlay.remove();
-    }
-    
-    // Capture current screen state by cloning the current body content
-    const bodyClone = document.body.cloneNode(true);
-    
-    // Create freeze overlay
-    const freezeOverlay = document.createElement('div');
-    freezeOverlay.className = 'visual-freeze-overlay';
-    
-    // Set the background to match what's currently showing
-    const currentBackground = window.getComputedStyle(document.body).background;
-    freezeOverlay.style.background = currentBackground;
-    
-    // Add the cloned content to the freeze overlay
-    freezeOverlay.appendChild(bodyClone);
-    
-    // Make the cloned content non-interactive
-    freezeOverlay.style.pointerEvents = 'none';
-    
-    // Inject freeze overlay on top of everything
-    document.body.appendChild(freezeOverlay);
-    
-    console.log("Visual freeze overlay created - screen frozen for 3 seconds");
-};
-
-// Monitor for SECOND/problematic loading screens only
-renegade_core.monitor_loading_screens = function() {
-    let firstLoadingScreenSeen = false;
-    
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'childList') {
-                mutation.addedNodes.forEach(function(node) {
-                    if (node.nodeType === Node.ELEMENT_NODE) {
-                        // Check if a loading screen was added
-                        const isLoadingScreen = node.classList && (
-                            node.classList.contains('loading-overlay') ||
-                            node.classList.contains('frappe-loading') ||
-                            node.classList.contains('page-loading') ||
-                            node.classList.contains('loading-screen') ||
-                            node.classList.contains('splash-container') ||
-                            node.classList.contains('centered') ||
-                            node.querySelector('.loading-overlay, .frappe-loading, .page-loading, .loading-screen, .splash-container, .centered.splash')
-                        );
-                        
-                        if (isLoadingScreen) {
-                            if (!firstLoadingScreenSeen) {
-                                // This is the first loading screen - let it work normally
-                                console.log("First loading screen detected - letting it work normally");
-                                firstLoadingScreenSeen = true;
-                            } else {
-                                // This is a subsequent loading screen - freeze the current visual!
-                                console.log("Second/problematic loading screen detected - freezing current visual");
-                                renegade_core.create_visual_freeze();
-                            }
-                        }
-                    }
-                });
-            }
-        });
-    });
-    
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-    
-    // Check if any loading screen already exists when we start monitoring
-    if (document.querySelector('.loading-overlay, .frappe-loading, .page-loading, .loading-screen, .splash-container, .centered.splash')) {
-        console.log("Loading screen already exists - marking as first screen");
-        firstLoadingScreenSeen = true;
-    }
-};
 
 // Run immediately and repeatedly to catch dynamic content
 $(document).ready(function() {
     renegade_core.customize_login_page();
-    renegade_core.monitor_loading_screens();
     
     // Keep trying every 500ms for 10 seconds
     let attempts = 0;
