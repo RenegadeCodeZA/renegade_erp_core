@@ -13,31 +13,62 @@
     border-bottom: 2px solid #2d5aa0;
 }
 
-/* Force login page background */
+/* Force login page background - stable positioning */
 body {
     background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center center !important;
+}
+
+/* Prevent background shift during transitions */
+html, body {
+    background-position: center center !important;
+    background-attachment: fixed !important;
 }
 
 /* Login page specific styling */
 .login-content {
     background: transparent !important;
+    transition: none !important;
 }
 
 .login-content .card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
-/* Loading screen styling */
+/* Hide Home button on login page */
+.login-content .btn-home,
+.login-content .home-btn,
+.login-content a[href="/"],
+.login-page .btn-home {
+    display: none !important;
+}
+
+/* Loading screen styling - prevent background shift */
 .loading-screen,
-.splash-screen {
+.splash-screen,
+.frappe-loading {
     background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-attachment: fixed !important;
+    background-position: center center !important;
+}
+
+/* Smooth transition after login */
+.page-container,
+.main-wrapper {
+    background: transparent !important;
+    transition: none !important;
+}
+
+/* Prevent any background position shifts */
+* {
+    background-position: center center !important;
 }
 
 /* Force logo to be rounded logo */

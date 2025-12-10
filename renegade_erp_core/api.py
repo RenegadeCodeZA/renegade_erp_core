@@ -15,9 +15,39 @@ def renegade_core_patch():
 		frappe.db.set_value("Blog Post", "Welcome", "content", "")
 	
 	update_field_labels()
+	set_default_branding()
 	
 	if cint(get_frappe_version()) >= 13 and not frappe.db.get_single_value('Renegade Core Settings', 'disable_onboarding'):
 		update_onboard_details()
+
+def set_default_branding():
+	"""Set default rounded logo and background image automatically"""
+	from frappe.installer import update_site_config
+	
+	# Set rounded logo as default
+	rounded_logo = "/assets/renegade_erp_core/images/renegade_logo_rounded.svg"
+	background_image = "/assets/renegade_erp_core/images/renegade_background.svg"
+	
+	# Update Website Settings
+	website_settings = frappe.get_doc("Website Settings", "Website Settings")
+	website_settings.app_logo = rounded_logo
+	website_settings.splash_image = rounded_logo  
+	website_settings.favicon = rounded_logo
+	website_settings.save(ignore_permissions=True)
+	
+	# Update Navbar Settings
+	navbar_settings = frappe.get_doc("Navbar Settings", "Navbar Settings")
+	navbar_settings.app_logo = rounded_logo
+	navbar_settings.save(ignore_permissions=True)
+	
+	# Update site config
+	update_site_config("app_logo_url", rounded_logo)
+	update_site_config("background_image_url", background_image)
+	
+	# Clear cache to apply changes
+	frappe.clear_cache()
+	from frappe.website.utils import clear_cache
+	clear_cache()
 
 def update_field_labels():
 	"""Update label of section break in employee doctype"""

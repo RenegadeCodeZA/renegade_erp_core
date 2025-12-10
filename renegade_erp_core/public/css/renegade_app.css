@@ -72,12 +72,24 @@
     z-index: 100 !important;
 }
 
-/* Background image for all pages */
+/* Background image for all pages - stable positioning */
 body {
     background: url('/assets/renegade_erp_core/images/renegade_background.svg') center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center center !important;
+}
+
+/* Prevent background position changes */
+html, body {
+    background-position: center center !important;
+    background-attachment: fixed !important;
+}
+
+/* Ensure smooth transitions after login */
+body.logged-in {
+    background-position: center center !important;
 }
 
 /* Loading overlay with background */
