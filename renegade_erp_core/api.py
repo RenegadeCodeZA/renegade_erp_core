@@ -29,16 +29,16 @@ def set_default_branding():
 	bordered_logo = "/assets/renegade_erp_core/images/renegade_logo_border.svg"
 	background_image = "/assets/renegade_erp_core/images/renegade_background.svg"
 	
-	# Update Website Settings
+	# Update Website Settings - use bordered logo for login pages
 	website_settings = frappe.get_doc("Website Settings", "Website Settings")
-	website_settings.app_logo = rounded_logo
+	website_settings.app_logo = bordered_logo  # Use bordered logo for login page
 	website_settings.splash_image = bordered_logo  # Use bordered logo for loading screen
-	website_settings.favicon = rounded_logo
+	website_settings.favicon = rounded_logo  # Keep rounded favicon
 	website_settings.save(ignore_permissions=True)
 	
-	# Update Navbar Settings
+	# Update Navbar Settings - use rounded logo for logged-in navbar
 	navbar_settings = frappe.get_doc("Navbar Settings", "Navbar Settings")
-	navbar_settings.app_logo = rounded_logo
+	navbar_settings.app_logo = rounded_logo  # Keep rounded for navbar
 	navbar_settings.save(ignore_permissions=True)
 	
 	# Update site config

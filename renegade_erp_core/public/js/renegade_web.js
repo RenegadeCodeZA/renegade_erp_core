@@ -17,14 +17,7 @@
             }
         });
         
-        // Replace logo with bordered version for login page - scaled by CSS
-        const logos = document.querySelectorAll('img.app-logo, .app-logo img, img[src*="renegade_logo"]');
-        logos.forEach(function(logo) {
-            // Only replace on login page - use bordered SVG
-            logo.src = '/assets/renegade_erp_core/images/renegade_logo_border.svg';
-            // CSS will handle the 1.75x scaling
-            console.log("Replaced with bordered logo for login page");
-        });
+        // Logo should already be correct from website settings - no replacement needed
         
         // Hide social logins section completely
         const socialLogins = document.querySelectorAll('.social-logins, div.social-logins, .social-logins.text-center');
